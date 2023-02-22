@@ -1,6 +1,5 @@
 
 
-
 namespace FindReplace
 {
   class Program
