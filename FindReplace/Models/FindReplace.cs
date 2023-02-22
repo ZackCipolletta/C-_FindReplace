@@ -10,15 +10,17 @@ namespace FindReplace.Models
     {
       UserInput = s;
     }
-    public string PleaseWork()
-    {
-      return UserInput;
-    }
 
     public List<string> ConvertStringToList()
     {
       List<string> nameList = new List<string>(UserInput.Split(' '));
         return nameList;
+    }
+
+    public int FindIndex(string word, List<string> list)
+    {
+      int index = list.FindIndex(a => a.Contains($"{word}"));
+      return index;
     }
 
     public List<string> ChangeListItem(int index, string replacement)

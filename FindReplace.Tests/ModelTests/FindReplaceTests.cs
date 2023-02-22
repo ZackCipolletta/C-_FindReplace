@@ -10,17 +10,6 @@ namespace FindReplace.Tests
   public class FindReplaceTests
   {
     [TestMethod]
-    public void FindReplaceConstructor_CreatesChangeWordsObjectWithStoredString_ChangeWords()
-    {
-      //Arrange
-      ChangeWords newChangeSingleWord = new ChangeWords("test String");
-      //Act
-      string userString = newChangeSingleWord.PleaseWork();
-      //Assert
-      Assert.AreEqual(userString, "test String");
-    }
-
-    [TestMethod]
     public void FindReplaceListConversion_ConvertsUserInputToAList_ChangeWords()
     {
       ChangeWords newChangeSingleWord = new ChangeWords("test string");
@@ -30,34 +19,45 @@ namespace FindReplace.Tests
       ;
     }
 
-        [TestMethod]
-    public void FindReplaceListConversion_PleaseWork_ChangeWords()
+    [TestMethod]
+    public void FindReplaceListConversion_ConvertStringToList_ChangeWords()
     {
       ChangeWords newChangeSingleWord = new ChangeWords("test string");
-      List<string> thisIsShit = newChangeSingleWord.ConvertStringToList();
-      Assert.AreEqual(thisIsShit[0], "test");
+      List<string> NewList = newChangeSingleWord.ConvertStringToList();
+      Assert.AreEqual(NewList[0], "test");
       ;
     }
 
 
-        [TestMethod]
+    [TestMethod]
     public void ChangeListItem_ChangeItemInAList_ChangeWords()
     {
       ChangeWords newChangeSingleWord = new ChangeWords("test string");
-      List<string> thisIsShit = newChangeSingleWord.ChangeListItem(0, "this");
-      Assert.AreEqual(thisIsShit[0], "this");
+      List<string> NewList = newChangeSingleWord.ChangeListItem(0, "this");
+      Assert.AreEqual(NewList[0], "this");
       ;
     }
 
-        [TestMethod]
+    [TestMethod]
     public void ConvertList_ConvertListToAString_ChangeWords()
     {
       ChangeWords newChangeSingleWord = new ChangeWords("test string");
-      List<string> thisIsShit = newChangeSingleWord.ChangeListItem(0, "this");
-      string result = newChangeSingleWord.ConvertToString(thisIsShit);
+      List<string> NewList = newChangeSingleWord.ChangeListItem(0, "this");
+      string result = newChangeSingleWord.ConvertToString(NewList);
       Assert.AreEqual(result, "this string");
       ;
     }
+
+    [TestMethod]
+    public void FindIndex_FindsIndexOfAStringInAList_ChangeWords()
+    {
+      ChangeWords newChangeSingleWord = new ChangeWords("test string");
+      List<string> userStringList = new List<string>(newChangeSingleWord.UserInput.Split(' '));
+      int index = newChangeSingleWord.FindIndex("test", userStringList);
+      Assert.AreEqual(index, 0);
+      
+    }
+
 
   }
 }
