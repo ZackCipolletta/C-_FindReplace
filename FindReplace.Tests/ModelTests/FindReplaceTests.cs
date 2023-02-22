@@ -4,7 +4,6 @@ using FindReplace.Models;
 using System.Collections.Generic;
 using System;
 
-
 namespace FindReplace.Tests
 {
   [TestClass]
@@ -39,8 +38,26 @@ namespace FindReplace.Tests
       Assert.AreEqual(thisIsShit[0], "test");
       ;
     }
+
+
+        [TestMethod]
+    public void ChangeListItem_ChangeItemInAList_ChangeWords()
+    {
+      ChangeWords newChangeSingleWord = new ChangeWords("test string");
+      List<string> thisIsShit = newChangeSingleWord.ChangeListItem(0, "this");
+      Assert.AreEqual(thisIsShit[0], "this");
+      ;
+    }
+
+        [TestMethod]
+    public void ConvertList_ConvertListToAString_ChangeWords()
+    {
+      ChangeWords newChangeSingleWord = new ChangeWords("test string");
+      List<string> thisIsShit = newChangeSingleWord.ChangeListItem(0, "this");
+      string result = newChangeSingleWord.ConvertToString(thisIsShit);
+      Assert.AreEqual(result, "this string");
+      ;
+    }
+
   }
 }
-
-
-testing if this works

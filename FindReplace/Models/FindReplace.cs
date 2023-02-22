@@ -18,9 +18,22 @@ namespace FindReplace.Models
     public List<string> ConvertStringToList()
     {
       List<string> nameList = new List<string>(UserInput.Split(' '));
-  
+        return nameList;
+    }
+
+    public List<string> ChangeListItem(int index, string replacement)
+    {
+      List<string> nameList = new List<string>(UserInput.Split(' '));
+      nameList[index] = replacement;
       return nameList;
     }
+
+    public string ConvertToString(List<string> list)
+    {
+      string result = string.Join(" ", list);
+      return result;
+    }
+
 
   }
 
